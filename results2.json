@@ -1,0 +1,614 @@
+stale_users - INFO - found 61 stale API credentials
+[
+    {
+        "name": "benn-apitoken-mdufxulx",
+        "namespace": "system",
+        "uid": "77852017-aef2-447a-a08d-1ffcd76f5a72",
+        "type": "API_TOKEN",
+        "create_timestamp": "2022-03-02T21:33:44.862310532Z",
+        "expiry_timestamp": "2022-05-31T21:33:44.862322035Z",
+        "user_email": "b.alp@f5.com",
+        "active": true
+    },
+    {
+        "name": "bennk8s-fhnrlbgp",
+        "namespace": "system",
+        "uid": "d72a3821-bf29-4b3d-816b-7ee2d417e02c",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-23T02:54:58.663869224Z",
+        "expiry_timestamp": "2022-06-21T02:54:58.663880873Z",
+        "user_email": "b.alp@f5.com",
+        "active": true
+    },
+    {
+        "name": "bennk8s-hpqdjesf",
+        "namespace": "system",
+        "uid": "a4da72ca-791e-4e30-935f-f6fd69e11383",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-02-10T23:20:46.380697286Z",
+        "expiry_timestamp": "2022-05-11T23:20:46.380706035Z",
+        "user_email": "b.alp@f5.com",
+        "active": true
+    },
+    {
+        "name": "boutique-dev-api-cred-xkpeigns",
+        "namespace": "system",
+        "uid": "09726e0e-97d2-4e21-8218-f6675f588b4f",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-09T14:33:24.694053643Z",
+        "expiry_timestamp": "2022-06-06T14:33:24.694065793Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "boutique-dev-utility-api-cred-qdtlfihk",
+        "namespace": "system",
+        "uid": "cb51de8e-99ac-439f-a747-0f8bff6d4f05",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-09T14:33:24.295653320Z",
+        "expiry_timestamp": "2022-06-06T14:33:24.295666174Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-api-cred-bpvkeieq",
+        "namespace": "system",
+        "uid": "b4a700e8-79f3-4c77-a2c7-3f1df3a81d89",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-02-04T17:40:56.944157002Z",
+        "expiry_timestamp": "2022-05-04T17:40:56.944164258Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-api-cred-fccivkya",
+        "namespace": "system",
+        "uid": "f6f17499-74ea-4fa8-a376-fdbff8fa227a",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-02-04T17:02:28.548671096Z",
+        "expiry_timestamp": "2022-05-04T17:02:28.548680059Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-api-cred-rdbmcght",
+        "namespace": "system",
+        "uid": "f86366da-38dd-487e-abc0-699aa8a96f18",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-09T02:59:29.528137944Z",
+        "expiry_timestamp": "2022-06-06T02:59:29.528150346Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-api-cred-udafvyky",
+        "namespace": "system",
+        "uid": "13fb2faa-3d3a-47d8-9f2e-ff4180eb23e2",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-08T15:11:53.829724323Z",
+        "expiry_timestamp": "2022-06-05T15:11:53.829732790Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-api-cred-ywejolvc",
+        "namespace": "system",
+        "uid": "917e7b1d-7527-48ca-8879-59265c3d26b5",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-02-08T13:37:03.150690661Z",
+        "expiry_timestamp": "2022-05-08T13:37:03.150703589Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-api-token-lpokebqh",
+        "namespace": "system",
+        "uid": "c41effef-5601-4c60-90f3-af86a87be748",
+        "type": "API_TOKEN",
+        "create_timestamp": "2022-03-30T19:08:10.599517631Z",
+        "expiry_timestamp": "2022-06-28T19:08:10.599528573Z",
+        "user_email": "s.starzhinskiy@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-dev-api-cred-jrbeuwbd",
+        "namespace": "system",
+        "uid": "437cffae-a827-4a2a-8f7f-f5385b62deec",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-07T22:26:21.020450889Z",
+        "expiry_timestamp": "2022-06-04T22:26:21.020463111Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-dev-api-cred-kwlamflr",
+        "namespace": "system",
+        "uid": "73e126d2-f6c6-42c2-abf8-582d8585e75a",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-07T15:13:48.057524839Z",
+        "expiry_timestamp": "2022-06-04T15:13:48.057535399Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-dev-utility-api-cred-pubsffah",
+        "namespace": "system",
+        "uid": "e3996bd3-f946-47f9-a0b5-2a747e93246b",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-07T15:13:48.644913015Z",
+        "expiry_timestamp": "2022-06-04T15:13:48.644923310Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-dev-utility-api-cred-rjrdgbmx",
+        "namespace": "system",
+        "uid": "99e77c6a-0619-43aa-af69-a01f3cf16006",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-07T22:26:20.759302064Z",
+        "expiry_timestamp": "2022-06-04T22:26:20.759314316Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-utility-api-cred-adelojta",
+        "namespace": "system",
+        "uid": "b85dc98c-b490-49d3-8a39-663b61ccb994",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-02-04T17:50:26.825571137Z",
+        "expiry_timestamp": "2022-05-04T17:50:26.825580520Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-utility-api-cred-rrduwarm",
+        "namespace": "system",
+        "uid": "5c84df68-f7c3-44c3-b681-e1e4f80890e5",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-09T03:00:36.694819077Z",
+        "expiry_timestamp": "2022-06-06T03:00:36.694827944Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-utility-api-cred-uhqdvlmn",
+        "namespace": "system",
+        "uid": "c643eba1-846b-498a-9b0a-5bea55d34ad3",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-02-08T13:37:03.349035054Z",
+        "expiry_timestamp": "2022-05-08T13:37:03.349045259Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-utility-api-cred-vwknofrk",
+        "namespace": "system",
+        "uid": "170ada06-7082-44da-b311-d15f5561bcd6",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-02-04T17:02:28.447888685Z",
+        "expiry_timestamp": "2022-05-04T17:02:28.447896057Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-app-utility-api-cred-ytsfdpvh",
+        "namespace": "system",
+        "uid": "359bc2f7-587e-46e6-aa6f-2699b71a39f2",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-08T15:11:50.434849203Z",
+        "expiry_timestamp": "2022-06-05T15:11:50.434874660Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-api-cred-nfseqtke",
+        "namespace": "system",
+        "uid": "9d6887ce-4b76-4a89-b0ee-12983323b706",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-10T00:51:29.240640142Z",
+        "expiry_timestamp": "2022-06-07T00:51:29.240648936Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-app-cred-brfiymns",
+        "namespace": "system",
+        "uid": "497ada40-bf42-4b52-bac4-9c19effce0c1",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-11T17:50:54.018285397Z",
+        "expiry_timestamp": "2022-06-08T17:50:54.018297761Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-app-cred-gtaqxgoy",
+        "namespace": "system",
+        "uid": "a2ec2ab8-41d9-4dc3-ba05-250bd3088b2f",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-18T22:30:38.972460639Z",
+        "expiry_timestamp": "2022-06-15T22:30:38.972474382Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-dev-api-cred-nytubfpb",
+        "namespace": "system",
+        "uid": "8f659cc9-9486-41f5-b106-d197c80ff604",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-09T22:29:58.911118896Z",
+        "expiry_timestamp": "2022-06-06T22:29:58.911129963Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-dev-utility-api-cred-ojcsoall",
+        "namespace": "system",
+        "uid": "c032c0be-6edf-4d9a-ad34-16f1e83deb9f",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-09T22:29:52.572337928Z",
+        "expiry_timestamp": "2022-06-06T22:29:52.572352492Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-app-cred-dpoibgvy",
+        "namespace": "system",
+        "uid": "a14b2850-d4e5-42ef-9a5e-652fae416843",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-21T12:53:56.847879855Z",
+        "expiry_timestamp": "2022-06-18T12:53:56.847890185Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-app-cred-eundbqdj",
+        "namespace": "system",
+        "uid": "2a4c27b0-6d40-411a-a551-35970216c3a6",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-19T20:38:24.957659230Z",
+        "expiry_timestamp": "2022-06-16T20:38:24.957670945Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-app-cred-jbhdrcsy",
+        "namespace": "system",
+        "uid": "e5330480-d18c-40b2-8a36-51b644ede942",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-22T15:10:53.455217227Z",
+        "expiry_timestamp": "2022-06-19T15:10:53.455228531Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-app-cred-kembenie",
+        "namespace": "system",
+        "uid": "a6dc7a82-848b-492f-95a9-b525bc518373",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-22T06:20:02.034079149Z",
+        "expiry_timestamp": "2022-06-19T06:20:02.034092398Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-app-cred-kqnxobsl",
+        "namespace": "system",
+        "uid": "6c8c919c-52e8-49e2-b69f-c6a362eaf584",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-19T00:00:54.767295574Z",
+        "expiry_timestamp": "2022-06-16T00:00:54.767303305Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-app-cred-mttwisfe",
+        "namespace": "system",
+        "uid": "e9e9b61e-ec78-4644-8224-aa1616dbabb0",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-22T06:46:04.380971489Z",
+        "expiry_timestamp": "2022-06-19T06:46:04.380980494Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-app-cred-myjvllnc",
+        "namespace": "system",
+        "uid": "bfe2b1a4-d7db-49c6-bf72-3910dc60b4af",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-22T14:51:54.577764625Z",
+        "expiry_timestamp": "2022-06-19T14:51:54.577778439Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-app-cred-nspncyuu",
+        "namespace": "system",
+        "uid": "7bf4a67e-5d1e-4915-8485-3ed5cb7a4439",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-18T21:56:53.621372830Z",
+        "expiry_timestamp": "2022-06-15T21:56:53.621380549Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-app-cred-vjggegel",
+        "namespace": "system",
+        "uid": "21ad3595-3df9-4feb-8f7c-a69ec9431ce7",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-22T06:02:06.774982118Z",
+        "expiry_timestamp": "2022-06-19T06:02:06.774991123Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-app-cred-wrehcwja",
+        "namespace": "system",
+        "uid": "8f2da14f-77c3-4f68-bfd5-e8be703399cc",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-19T17:17:16.655036946Z",
+        "expiry_timestamp": "2022-06-16T17:17:16.655046576Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-app-cred-xjuhxqyv",
+        "namespace": "system",
+        "uid": "270f43f7-c6f8-40e7-be3e-758190ebc11d",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-19T01:47:43.497727610Z",
+        "expiry_timestamp": "2022-06-16T01:47:43.497736599Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-temp-app-cred-ltoxbhvh",
+        "namespace": "system",
+        "uid": "14989986-0a32-4ca3-b77c-fd6b89530796",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-18T15:53:56.229999106Z",
+        "expiry_timestamp": "2022-06-15T15:53:56.230005150Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-temp-app-cred-pvwkfvoo",
+        "namespace": "system",
+        "uid": "72d9c61e-efa3-4739-80da-7f215017e8b4",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-18T17:47:56.112865541Z",
+        "expiry_timestamp": "2022-06-15T17:47:56.112876494Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-temp-app-cred-sajaxstj",
+        "namespace": "system",
+        "uid": "f426b16d-20d0-43a7-b36b-738215e5ecc2",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-18T16:42:51.528813586Z",
+        "expiry_timestamp": "2022-06-15T16:42:51.528824418Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-temp-app-cred-vgfdcmhw",
+        "namespace": "system",
+        "uid": "1d857038-f53c-4516-80ab-5d009a46dc6d",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-18T16:08:52.581368225Z",
+        "expiry_timestamp": "2022-06-15T16:08:52.581379477Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-temp-utl-cred-cqstrqfm",
+        "namespace": "system",
+        "uid": "8d9d4c2a-cf67-4149-b7f5-ee596c133c5a",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-18T16:18:58.208776643Z",
+        "expiry_timestamp": "2022-06-15T16:18:58.208786750Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-temp-utl-cred-hqggknop",
+        "namespace": "system",
+        "uid": "d8bbf095-c1e9-424d-b45b-e753e60b807c",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-18T17:47:37.516574897Z",
+        "expiry_timestamp": "2022-06-15T17:47:37.516585696Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-temp-utl-cred-uialcanv",
+        "namespace": "system",
+        "uid": "2a6fb39c-4349-4cec-a326-a8bebdb553f5",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-18T15:53:56.599314647Z",
+        "expiry_timestamp": "2022-06-15T15:53:56.599324869Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-utl-cred-fodnqntu",
+        "namespace": "system",
+        "uid": "4802dace-84a5-47ea-8bd8-af60a6218e3c",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-19T20:38:11.744660097Z",
+        "expiry_timestamp": "2022-06-16T20:38:11.744671119Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-utl-cred-gwlosejr",
+        "namespace": "system",
+        "uid": "48fd98c1-eb8b-4fd9-b25e-80346c8a6551",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-22T06:20:01.925478313Z",
+        "expiry_timestamp": "2022-06-19T06:20:01.925492057Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-utl-cred-iyywxxfk",
+        "namespace": "system",
+        "uid": "6fc8b075-a99b-4222-84e0-5d9642480128",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-22T06:46:01.145817633Z",
+        "expiry_timestamp": "2022-06-19T06:46:01.145836874Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-utl-cred-ldeclvhp",
+        "namespace": "system",
+        "uid": "3b0632a6-a647-4c30-8702-ee075f1a0a18",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-22T13:47:42.915570020Z",
+        "expiry_timestamp": "2022-06-19T13:47:42.915579806Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-utl-cred-mossncqx",
+        "namespace": "system",
+        "uid": "8b20509d-34be-4ff1-a74c-41d20404bddc",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-22T15:10:50.986906476Z",
+        "expiry_timestamp": "2022-06-19T15:10:50.986915452Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-utl-cred-ndfwsdlt",
+        "namespace": "system",
+        "uid": "d17f6356-f5c4-4fc7-bcf2-c3a18d17e26d",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-21T12:55:27.396158651Z",
+        "expiry_timestamp": "2022-06-18T12:55:27.396166104Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-utl-cred-qjqwvqck",
+        "namespace": "system",
+        "uid": "4925c406-30ec-433d-962b-b626ae2f7377",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-22T06:02:06.760734002Z",
+        "expiry_timestamp": "2022-06-19T06:02:06.760744448Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-stage-utl-cred-toltkhsh",
+        "namespace": "system",
+        "uid": "89c4e648-3f5e-4056-b822-9a03f1888cc0",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-18T21:56:44.526523106Z",
+        "expiry_timestamp": "2022-06-15T21:56:44.526534574Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-utility-api-cred-ptuiipbr",
+        "namespace": "system",
+        "uid": "05ad1650-27a2-45cf-8569-e146cc12c4d2",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-10T00:51:22.350357630Z",
+        "expiry_timestamp": "2022-06-07T00:51:22.350367229Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-utl-cred-qalqlnwj",
+        "namespace": "system",
+        "uid": "698b349a-d9de-46b1-bb80-63b62d71d38e",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-18T22:30:40.645435679Z",
+        "expiry_timestamp": "2022-06-15T22:30:40.645444258Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "demo-shop-utl-cred-tlywjyva",
+        "namespace": "system",
+        "uid": "da0a67f6-5301-4d8c-baa1-b169e9445058",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-03-11T17:50:52.509581713Z",
+        "expiry_timestamp": "2022-06-08T17:50:52.509588353Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "eric-chen-lcsvyuep",
+        "namespace": "system",
+        "uid": "58003bbf-04c6-4cf8-8965-f179fd614889",
+        "type": "API_CERTIFICATE",
+        "create_timestamp": "2022-02-23T10:07:57.866285591Z",
+        "expiry_timestamp": "2022-05-24T10:07:57.866291555Z",
+        "user_email": "eric.chen@f5.com",
+        "active": true
+    },
+    {
+        "name": "eric-chen-rrjudjwb",
+        "namespace": "system",
+        "uid": "73c12f47-df3f-429c-a9a6-bbcdb2f28f3b",
+        "type": "API_TOKEN",
+        "create_timestamp": "2022-02-25T14:01:51.972828531Z",
+        "expiry_timestamp": "2022-05-26T14:01:51.972836755Z",
+        "user_email": "eric.chen@f5.com",
+        "active": true
+    },
+    {
+        "name": "krey-az-managed-tyyfngvu",
+        "namespace": "system",
+        "uid": "b40bcab1-b4bb-4370-a202-589ac5e96f9c",
+        "type": "SITE_GLOBAL_KUBE_CONFIG",
+        "create_timestamp": "2022-03-31T18:33:57.945856003Z",
+        "expiry_timestamp": "2022-06-26T18:33:57.510Z",
+        "user_email": "n.ferreira@f5.com",
+        "active": true
+    },
+    {
+        "name": "tech-x-change-az-rahadket",
+        "namespace": "system",
+        "uid": "11bf348e-a03d-4400-ad31-0883c56576e7",
+        "type": "SITE_GLOBAL_KUBE_CONFIG",
+        "create_timestamp": "2022-05-23T19:26:42.286767618Z",
+        "expiry_timestamp": "2022-05-31T19:26:41.822Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "tech-x-change-vk8s-hroqfach",
+        "namespace": "system",
+        "uid": "b06785e1-0c7e-4493-9bda-f6e1fc242260",
+        "type": "KUBE_CONFIG",
+        "create_timestamp": "2022-05-23T19:36:42.486846083Z",
+        "expiry_timestamp": "2022-05-31T19:36:42.486859018Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "tf-cloud-deploy-gcemhkbn",
+        "namespace": "system",
+        "uid": "71e31544-f9ee-4912-9dcd-be6942287dd5",
+        "type": "API_CERTIFICATE",
+        "create_timestamp": "2022-03-09T20:45:43.185634873Z",
+        "expiry_timestamp": "2022-06-07T20:45:43.185645039Z",
+        "user_email": "k.reynolds@f5.com",
+        "active": true
+    },
+    {
+        "name": "voltapi-jojqdngy",
+        "namespace": "system",
+        "uid": "374b1edc-a846-489c-92ef-2ad3ed63bdfa",
+        "type": "API_CERTIFICATE",
+        "create_timestamp": "2022-03-02T21:22:47.204163386Z",
+        "expiry_timestamp": "2022-05-31T21:22:47.204172988Z",
+        "user_email": "b.alp@f5.com",
+        "active": true
+    }
+]
+stale_users - INFO - Done. Exiting.

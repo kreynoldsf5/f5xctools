@@ -17,7 +17,7 @@ class cleanIAM():
     def __init__(self, xc_session):
         self.xcsession = xc_session
 
-    def exist(self, email: str) -> bool:
+    def exists(self, email: str) -> bool:
         try:
             resp = self.xcsession.get('/api/web/custom/namespaces/system/user_roles?namespace=system')
             resp.raise_for_status()
@@ -28,7 +28,7 @@ class cleanIAM():
         except Exception as e:
             raise IAMerror(e)
 
-    def stale(self, staleDays):
+    def find_stale(self, staleDays):
         try:
             resp = self.xcsession.get('/api/web/custom/namespaces/system/user_roles')
             resp.raise_for_status()
@@ -56,7 +56,7 @@ class cleanIAM():
         except Exception as e:
             raise IAMerror(e)
 
-    def deleteIAM(self, email, namespace='system'):
+    def delete_iam(self, email, namespace='system'):
         userPayload = {
             "email": email.lower(),
             "namespace": namespace

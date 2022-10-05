@@ -4,9 +4,9 @@ from helper import F5xcSession, getLogger, writeCSV
 
 def main():
     ap = argparse.ArgumentParser(
-        prog='f5xc_stale_creds',
+        prog='f5xc_stale_sites',
         usage='%(prog)s [options]',
-        description='find and, optionally, remove stale f5xc credentials from a tenant'
+        description='find and, optionally, remove stale f5xc sites from a tenant'
     )
     ap.add_argument(
         '--tenant',
@@ -22,7 +22,7 @@ def main():
     )
     ap.add_argument(
         '--stale_days',
-        help='days since API cred expired',
+        help='days since site was last seen',
         type=int,
         default=30,
         required=False
@@ -36,7 +36,7 @@ def main():
     )
     ap.add_argument(
         '--remove',
-        help='remove stale credentials',
+        help='remove stale sites',
         default=False,
         action='store_true',
         required=False
@@ -53,19 +53,19 @@ def main():
         level = 'DEBUG'
     else:
         level = 'INFO'
-    logger = getLogger('stale_creds', level)
+    logger = getLogger('stale_sites', level)
     try:
         xcSession = F5xcSession(args.token, args.tenant)
         logger.debug('created XC session')
-        stale = xcSession.staleApiCreds(args.stale_days)
+        stale = xcSession.staleSites(args.stale_days)
         if stale:
-            logger.info('found {} stale API credentials'.format(len(stale)))
+            logger.info('found {} stale sites'.format(len(stale)))
         else:
-            logger.info('no stale API credentials found. Exiting.')
+            logger.info('no stale sites found. Exiting.')
             sys.exit(0)
     except Exception as e:
         logger.debug(e)
-        logger.info('Error creation XC session and retrieving API credentials. Exiting.')
+        logger.info('Error creation XC session and retrieving sites. Exiting.')
         sys.exit(1)
     try:
         if args.csv:
@@ -78,17 +78,13 @@ def main():
         logger.info('Error writing results. Exiting.')
         sys.exit(1)
     if args.remove:
-        for cred in stale:
-            if cred['type'] == 'SITE_GLOBAL_KUBE_CONFIG':
-                logger.info('API credential {0} is a global kubeconfig. skipping.'.format(cred['name']))
-                continue
-            else:   
-                try:
-                    xcSession.deleteApiCred(cred['name'], cred['namespace'])
-                    logger.info('cred {} removed.'.format(cred['name']))
-                except Exception as e:
-                    logger.info('Error removing stale API credential {0}: {1}. skipping.'.format(cred['name'], e))
-                    continue 
+        for site in stale:
+            try:
+                xcSession.deleteSite(site)
+                logger.info('site {} removed.'.format(site['name']))
+            except Exception as e:
+                logger.info('Error removing stale site {0}: {1}. skipping.'.format(site['name'], e))
+                continue 
     logger.info('Done. Exiting.')
     sys.exit(0)
 

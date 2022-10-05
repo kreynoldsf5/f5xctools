@@ -47,6 +47,10 @@ class SITESerror(Error):
     """Raised when IAM operations fail"""
     pass
 
+class CCREDerror(Error):
+    """Raised when IAM operations fail"""
+    pass
+
 class F5xcSession(Session):
     def __init__(self, token, prefix_url=None, *args, **kwargs):
         super(F5xcSession, self).__init__(*args, **kwargs)
@@ -148,6 +152,52 @@ class F5xcSession(Session):
         except Exception as e:
             raise SITESerror(e)
 
+    def staleCloudCreds(self, staleDays):
+        specSitesDict = [
+            {'url': '/api/config/namespaces/system/aws_vpc_sites?report_fields', 'cred': 'aws_cred'},
+            {'url': '/api/config/namespaces/system/aws_tgw_sites?report_fields', 'cred': 'aws_cred'},
+            {'url': '/api/config/namespaces/system/azure_vnet_sites?report_fields', 'cred': 'azure_cred'},
+            {'url': '/api/config/namespaces/system/gcp_vpc_sites?report_fields', 'cred': 'cloud_credentials'},
+        ]
+        try:
+            usedCreds = []
+            for kind in specSitesDict:
+                resp = self.get(kind['url'])
+                resp.raise_for_status()
+                for item in resp.json()['items']:
+                    if kind['cred'] in item['get_spec']:
+                        usedCreds.append(item['get_spec'][kind['cred']])
+            usedCreds = [i for n, i in enumerate(usedCreds) if i not in usedCreds[n + 1:]]
+            #Find all cloud creds
+            creds = []
+            resp = self.get('/api/config/namespaces/system/cloud_credentialss?report_fields')
+            resp.raise_for_status()
+            for item in resp.json()['items']:
+                this = {
+                    'tenant': item['tenant'],
+                    'namespace': item['namespace'],
+                    'name': item['name'],
+                    'creation_timestamp': item['system_metadata']['creation_timestamp']
+                }
+                creds.append(this)
+            #Eleminate used creds from all creds
+            for cred in creds.copy():
+                for used in usedCreds:
+                    if cred.get('name') == used['name']:
+                        creds.remove(cred)
+            #Find the unused creds that are 'stale'
+            staleCreds = []
+            expiry = findExpiry(staleDays)
+            for cred in creds:
+                if parse(cred['creation_timestamp']) < expiry:
+                    staleCreds.append(cred) 
+            if len(staleCreds):
+                return staleCreds
+            else:
+                return None
+        except Exception as e:
+            raise CCREDerror(e)
+
     def deleteNS(self, nsName):
         nsPayload = {
             "name": nsName
@@ -162,10 +212,10 @@ class F5xcSession(Session):
         except Exception as e:
             raise NSerror(e)
 
-    def deleteIAM(self, email):
+    def deleteIAM(self, email, namespace='system'):
         userPayload = {
             "email": email.lower(),
-            "namespace": "system"
+            "namespace": namespace
         }
         try:
             resp = self.post(
@@ -177,7 +227,7 @@ class F5xcSession(Session):
         except Exception as e:
             raise IAMerror(e)
 
-    def deleteApiCred(self, name, namespace):
+    def deleteApiCred(self, name, namespace='system'):
         userPayload = {
             "name": name,
             "namespace": namespace
@@ -197,6 +247,7 @@ class F5xcSession(Session):
             'aws_vpc_site': '/api/config/namespaces/{}/aws_vpc_sites/'.format(site['namespace']),
             'aws_tgw_site': '/api/config/namespaces/{}/aws_tgw_sites/'.format(site['namespace']),
             'azure_vnet_site': '/api/config/namespaces/{}/azure_vnet_sites/'.format(site['namespace']),
+            'gcp_vpc_site': '/api/config/namespaces/{}/gcp_vpc_sites/'.format(site['namespace']),
             'voltstack_site': '/api/config/namespaces/{}/voltstack_sites/'.format(site['namespace'])
         }
         try:
@@ -223,4 +274,20 @@ class F5xcSession(Session):
                 return
         except Exception as e:
             raise APICREDerror(e)
+
+    def deleteCloudCred(self, cred):
+        #Docs are wrong: https://docs.cloud.f5.com/docs/api/cloud-credentials#operation/ves.io.schema.cloud_credentials.API.Delete
+        #userPayload = {
+        #    'name': cred['name'],
+        #    'namespace': cred['namespace'],
+        #    'fail_if_referred': True
+        #}
+        try:
+            resp = self.delete(
+                '/api/config/namespaces/{0}/cloud_credentialss/{1}'.format(cred['namespace'], cred['name']),
+            )
+            resp.raise_for_status()
+            return
+        except Exception as e:
+            raise CCREDerror(e)
 

@@ -5,15 +5,19 @@ class Error(Exception):
     pass
 
 class FindError(Error):
-    """Raised when IAM operations fail"""
+    """Raised when Find operations fail"""
     pass
 
 class DelError(Error):
-    """Raised when IAM operations fail"""
+    """Raised when Delete operations fail"""
     pass
 
 class RenewError(Error):
-    """Raised when IAM operations fail"""
+    """Raised when Renew operations fail"""
+    pass
+
+class SessionError(Error):
+    """Raised when Session operations fail"""
     pass
 
 def findExpiry(staleDays: int):

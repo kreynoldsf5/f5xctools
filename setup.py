@@ -15,7 +15,7 @@ setup(
     long_description=readme,
     author='Kevin Reynolds',
     author_email='k.reynolds@f5.com',
-    url='https://github.com/kreynoldsf5/f5xc-tenant-tools',
+    url='https://github.com/kreynoldsf5/f5xctools',
     license=license,
     packages=find_packages(exclude=('tests', 'docs')),
     install_requires=[

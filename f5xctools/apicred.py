@@ -1,7 +1,7 @@
 from helpers import findExpiry, FindError, DelError, RenewError
 from dateutil.parser import parse
 
-class api_cred():
+class apicred():
     def __init__(self, xc_session):
         self.xcsession = xc_session
 

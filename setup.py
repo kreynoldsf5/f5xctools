@@ -9,7 +9,7 @@ with open('LICENSE') as f:
     license = f.read()
 
 setup(
-    name='f5xc-tenant-tools',
+    name='f5xctools',
     version='0.1.0',
     description='F5 Distributed Cloud (F5xc) tenant tools.',
     long_description=readme,

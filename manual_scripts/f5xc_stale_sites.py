@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import argparse, json, sys
-from helper import F5xcSession, getLogger, writeCSV
+from manual_scripts.helper import F5xcSession, getLogger, writeCSV
 
 def main():
     ap = argparse.ArgumentParser(

@@ -1,4 +1,4 @@
-from helpers import DelError
+from .helpers import DelError
 
 from dateutil.parser import parse
 class ns():

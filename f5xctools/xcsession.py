@@ -1,8 +1,8 @@
-from requests import Session
+import requests
 from urllib.parse import urljoin
 from f5xctools.helpers import SessionError
 
-class xcsession(Session):
+class xcsession(requests.Session):
     def __init__(self, token, prefix_url=None, *args, **kwargs):
         super(xcsession, self).__init__(*args, **kwargs)
         self.prefix_url = prefix_url
@@ -13,9 +13,10 @@ class xcsession(Session):
         url = urljoin(self.prefix_url, url)
         return super(xcsession, self).request(method, url, *args, **kwargs)
 
-    def valid(self) -> bool:
+    def valid(self, token) -> bool:
         try:
-            resp = self.request.get('/api/web/custom/namespaces/system/whoaminamespace=system')
+            headers = {'Authorization': "APIToken {0}".format(token)}
+            resp = requests.get('/api/web/custom/namespaces/system/whoami?namespace=system', headers=headers)
             resp.raise_for_status()
             return
         except Exception as e:

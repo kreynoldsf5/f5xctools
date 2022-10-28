@@ -14,3 +14,7 @@ def delete(xcsession, nsName):
         return
     except Exception as e:
         raise DelError(e)
+
+"""
+Delete NSs async to save time
+"""

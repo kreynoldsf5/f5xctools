@@ -40,9 +40,9 @@ def find_stale(xcsession, staleDays):
     except Exception as e:
         raise FindError(e)
 
-def delete(xcsession, email, namespace='system'):
+def delete(xcsession, iam, namespace='system'):
     userPayload = {
-        "email": email.lower(),
+        "email": iam['email'],
         "namespace": namespace
     }
     try:
@@ -54,3 +54,7 @@ def delete(xcsession, email, namespace='system'):
         return
     except Exception as e:
         raise DelError(e)
+
+"""
+Handle domain owners
+"""

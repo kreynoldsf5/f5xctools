@@ -1,53 +1,38 @@
-from f5xctools.helpers import findExpiry, FindError, DelError
+from f5xctools.helpers import findExpiry, RenewError, DelError
 from dateutil.parser import parse
 
-def exists(xcsession, email: str) -> bool:
+def renew(xcsession, tokenName: str, expiryDays: int=7):
+    tokenPayload = {
+        "name": tokenName,
+        "expiration_days": expiryDays,
+    }
     try:
-        resp = xcsession.get('/api/web/custom/namespaces/system/user_roles?namespace=system')
+        resp = xcsession.post('/api/web/namespaces/system/renew/api_credentials', json=tokenPayload)
         resp.raise_for_status()
-        if next((x for x in resp.json()['items'] if x['email'] == email), None):
-            return True
-        else:
-            return False
+        return
     except Exception as e:
-        raise FindError(e)
+        raise RenewError(e)
 
-def find_stale(xcsession, staleDays) -> list:
+def expire(xcsession, tokenName: str):
+    tokenPayload = {
+        "name": tokenName,
+        "expiration_days": 0,
+    }
     try:
-        resp = xcsession.get('/api/web/custom/namespaces/system/user_roles')
+        resp = xcsession.post('/api/web/namespaces/system/renew/api_credentials', json=tokenPayload)
         resp.raise_for_status()
-        staleIAMs = []
-        for item in resp.json()['items']:
-            expiry = findExpiry(staleDays)
-            this = {
-                    'email': item['email'],
-                    'first_name': item['first_name'],
-                    'last_name': item['last_name'],
-                    'domain_owner': item['domain_owner'],
-                    'creation_timestamp': item['creation_timestamp'],
-                    'last_login_timestamp': item['last_login_timestamp']
-                }
-            if this['last_login_timestamp']:
-                if parse(this['last_login_timestamp']) < expiry:
-                    staleIAMs.append(this)
-            else:
-                if parse(this['creation_timestamp']) < expiry:
-                    staleIAMs.append(this)
-        if len(staleIAMs):
-            return staleIAMs
-        else:
-            return None
+        return
     except Exception as e:
-        raise FindError(e)
+        raise RenewError(e)
 
-def delete(xcsession, email, namespace='system'):
+def revoke(xcsession, name, namespace='system'):
     userPayload = {
-        "email": email.lower(),
+        "name": name,
         "namespace": namespace
     }
     try:
         resp = xcsession.post(
-            '/api/web/custom/namespaces/system/users/cascade_delete',
+            '/api/web/namespaces/system/revoke/api_credentials',
             json=userPayload
         )
         resp.raise_for_status()

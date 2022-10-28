@@ -7,7 +7,7 @@ class xcsession(requests.Session):
         super(xcsession, self).__init__(*args, **kwargs)
         self.prefix_url = prefix_url
         self.headers.update({'Authorization': "APIToken {0}".format(token)})
-        self.valid()
+        self.valid(token)
 
     def request(self, method, url, *args, **kwargs):
         url = urljoin(self.prefix_url, url)

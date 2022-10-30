@@ -2,6 +2,7 @@ from f5xctools.helpers import DelError
 from dateutil.parser import parse
 import asyncio
 import aiohttp
+import json
 
 def delete(xcsession, nsName):
     nsPayload = {
@@ -21,6 +22,7 @@ async def _post(ns, session):
     try:
         async with session.post(
             "/api/web/namespaces/{0}/cascade_delete".format(ns),
+            data = json.dumps({'name': ns}),
             ssl = True, 
             timeout = aiohttp.ClientTimeout(
                 total=None, 

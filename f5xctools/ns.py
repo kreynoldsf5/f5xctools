@@ -27,7 +27,7 @@ async def _post(ns, session):
             timeout = aiohttp.ClientTimeout(
                 total=None, 
                 sock_connect = 10, 
-                sock_read = 10
+                sock_read = 45
             )
         ) as response:
             content = await response.read()

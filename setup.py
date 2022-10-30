@@ -21,6 +21,8 @@ setup(
     install_requires=[
         'requests>=2.28.1',
         'urllib3>=1.26.12',
-        'python-dateutil>=2.8.2'
+        'python-dateutil>=2.8.2',
+        'asyncio>=3.4.3',
+        'aiohttp>=3.8.3'
     ]
 )

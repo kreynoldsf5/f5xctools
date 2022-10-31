@@ -30,11 +30,12 @@ async def _post(ns, session):
                 sock_read = 45
             )
         ) as response:
-            content = await response.read()
-            return (ns, 'OK', content)
+            #content = await response.read()
+            code = await response.code()
+            return({'namespace': ns, 'status': 'success', 'message': code}) #dict or json encode this?
     except Exception as e:
-        print(e)
-        return (ns, 'ERROR', str(e))
+        #return (ns, 'ERROR', str(e))
+        return({'namespace': ns, 'status': 'error', 'message': str(e)})
 
 async def _run(xcsession, NSs):
     tasks = []

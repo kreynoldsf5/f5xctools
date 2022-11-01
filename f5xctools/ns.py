@@ -46,8 +46,8 @@ async def _post(ns, session):
             )
         ) as response:
             #content = await response.read()
-            code = await response.code()
-            return({'namespace': ns, 'status': 'OK', 'message': code}) #dict or json encode this?
+            status = await response.status()
+            return({'namespace': ns, 'status': 'OK', 'message': status}) #dict or json encode this?
     except Exception as e:
         #return (ns, 'ERROR', str(e))
         return({'namespace': ns, 'status': 'ERROR', 'message': str(e)})

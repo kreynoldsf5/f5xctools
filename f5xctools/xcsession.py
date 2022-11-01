@@ -21,3 +21,7 @@ class xcsession(requests.Session):
             return
         except Exception as e:
             raise SessionError(e)
+
+"""
+use aiohttp.ClientSession for all requests, even if in a synchronous way?
+"""

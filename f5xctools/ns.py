@@ -4,6 +4,21 @@ import asyncio
 import aiohttp
 import json
 
+def create(xcsession, nsName, roles):
+    nsPayload = {
+        'name': nsName,
+        'user_roles': roles
+    }
+    try:
+        resp = xcsession.post(
+            "/api/web/namespaces",
+            json=nsPayload
+        )
+        resp.raise_for_status()
+        return
+    except Exception as e:
+        raise DelError(e)
+
 def delete(xcsession, nsName):
     nsPayload = {
         "name": nsName
@@ -32,10 +47,10 @@ async def _post(ns, session):
         ) as response:
             #content = await response.read()
             code = await response.code()
-            return({'namespace': ns, 'status': 'success', 'message': code}) #dict or json encode this?
+            return({'namespace': ns, 'status': 'OK', 'message': code}) #dict or json encode this?
     except Exception as e:
         #return (ns, 'ERROR', str(e))
-        return({'namespace': ns, 'status': 'error', 'message': str(e)})
+        return({'namespace': ns, 'status': 'ERROR', 'message': str(e)})
 
 async def _run(xcsession, NSs):
     tasks = []
@@ -55,5 +70,8 @@ def bulk_delete(xcsession, NSs):
     return(task.result().result())
 
 """
-Delete NSs async to save time
+TBD
+Limit the number of concurrent request to the quota default
+only expose the functions needed and not the help functions
+add a bulk_create method
 """

@@ -5,21 +5,29 @@ class Error(Exception):
     pass
 
 class FindError(Error):
-    """Raised when Find operations fail"""
+    """Raised when Find operation fails"""
+    pass
+
+class CreateError(Error):
+    """Raised when Create operation fails"""
     pass
 
 class DelError(Error):
-    """Raised when Delete operations fail"""
+    """Raised when Delete operation fails"""
     pass
 
 class RenewError(Error):
-    """Raised when Renew operations fail"""
+    """Raised when Renew operation fails"""
     pass
 
 class SessionError(Error):
-    """Raised when Session operations fail"""
+    """Raised when Session operation fails"""
     pass
 
 def findExpiry(staleDays: int):
     expiry = datetime.datetime.now(tz=datetime.timezone.utc) - datetime.timedelta(days=staleDays)
     return expiry
+
+"""
+Do something when errors are raised instead of 'pass'
+"""

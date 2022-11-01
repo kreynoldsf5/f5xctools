@@ -56,5 +56,7 @@ def delete(xcsession, iam, namespace='system'):
         raise DelError(e)
 
 """
+TBD
 Handle domain owners
+add bulk create and bulk delete methods
 """

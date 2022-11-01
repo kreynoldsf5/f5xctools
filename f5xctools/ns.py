@@ -46,8 +46,8 @@ async def _post(ns, session):
             )
         ) as response:
             async with response:
-                assert response.status == 200
-            return({'namespace': ns, 'status': 'OK', 'message': response.status}) #dict or json encode this?
+                assert (response.status == 200),"status: {}".format(response.status)
+            return({'namespace': ns, 'status': 'OK', 'message': response.status})
     except Exception as e:
         #return (ns, 'ERROR', str(e))
         return({'namespace': ns, 'status': 'ERROR', 'message': str(e)})

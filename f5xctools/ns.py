@@ -45,9 +45,9 @@ async def _post(ns, session):
                 sock_read = 45
             )
         ) as response:
-            #content = await response.read()
-            status = await response.status()
-            return({'namespace': ns, 'status': 'OK', 'message': status}) #dict or json encode this?
+            async with response:
+                assert response.status == 200
+            return({'namespace': ns, 'status': 'OK', 'message': response.status}) #dict or json encode this?
     except Exception as e:
         #return (ns, 'ERROR', str(e))
         return({'namespace': ns, 'status': 'ERROR', 'message': str(e)})

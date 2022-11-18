@@ -1,13 +1,15 @@
-from f5xctools.helpers import DelError
+from f5xctools.helpers import DelError, CreateError
 from dateutil.parser import parse
 import asyncio
 import aiohttp
 import json
 
-def create(xcsession, nsName, roles):
+def create(xcsession, nsName):
     nsPayload = {
-        'name': nsName,
-        'user_roles': roles
+        'metadata': {
+            'name': nsName
+        },
+        'spec': {}
     }
     try:
         resp = xcsession.post(
@@ -17,7 +19,7 @@ def create(xcsession, nsName, roles):
         resp.raise_for_status()
         return
     except Exception as e:
-        raise DelError(e)
+        raise CreateError(e)
 
 def delete(xcsession, nsName):
     nsPayload = {

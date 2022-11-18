@@ -1,5 +1,24 @@
-from f5xctools.helpers import findExpiry, FindError, DelError
+from f5xctools.helpers import CreateError, findExpiry, FindError, DelError
 from dateutil.parser import parse
+
+def create(xcsession, firstName: str, lastName: str, email: str, nsRoles: str = None):
+    try:
+        pass
+        payload = {
+            'email': email,
+            'first_name': firstName,
+            'last_name': lastName,
+            'domain_owner': False,
+            'namespace_roles': nsRoles
+        }
+        resp = xcsession.post(
+            '/api/web/custom/namespaces/system/users',
+            json=payload
+        )
+        resp.raise_for_status()
+        return
+    except Exception as e:
+        raise CreateError(e)
 
 def exists(xcsession, email: str) -> bool:
     try:

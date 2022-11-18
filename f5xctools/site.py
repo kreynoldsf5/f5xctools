@@ -60,7 +60,7 @@ def delete(xcsession, site):
                 'state': 7
             }
             url='/api/register/namespaces/system/site/{}/state'.format(site['name'])
-            resp = self.post(
+            resp = xcsession.post(
                 url,
                 json=userPayload
             )

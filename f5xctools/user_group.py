@@ -16,15 +16,17 @@ def create(xcsession, name: str, nsRoles: str = None, description: str = None):
     except Exception as e:
         raise CreateError(e)
 
-def updateUsers(xcsession, name: str, usernames: list):
+def updateUsers(xcsession, name: str, usernames: list, timeout: int = 120):
     try:
         payload = {
             'name': name,
-            'username': usernames
+            'usernames': usernames,
+            'namespace_roles': []
         }
         resp = xcsession.put(
-            '/api/web/custom/namespaces/system/user_groups',
-            json=payload
+            '/api/web/custom/namespaces/system/user_groups/{}'.format(name),
+            json=payload,
+            timeout=timeout
         )
         resp.raise_for_status()
         return
@@ -35,10 +37,11 @@ def updateRoles(xcsession, name: str, NSroles: list):
     try:
         payload = {
             'name': name,
-            'namespace_roles': NSroles
+            'namespace_roles': NSroles,
+            'usernames': ""
         }
         resp = xcsession.put(
-            '/api/web/custom/namespaces/system/user_groups',
+            '/api/web/custom/namespaces/system/user_groups/{}'.format(name),
             json=payload
         )
         resp.raise_for_status()

@@ -103,6 +103,8 @@ def delete(xcsession, iam, namespace='system'):
     except Exception as e:
         raise DelError(e)
 
+
+
 """
 TBD
 Handle domain owners

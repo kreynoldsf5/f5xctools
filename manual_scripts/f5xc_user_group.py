@@ -41,8 +41,9 @@ def main():
         user_names = []
         for reg in reg_users:
             user_names.append(reg['email'])
-        #user_group.updateUsers(session, args.user_group, user_names)
-        print(user_names)
+        print(len(user_names))
+        user_group.updateUsers(session, args.user_group, user_names, 300)
+        #print(user_names)
     except Exception as e:
         print(e)
         sys.exit(1)

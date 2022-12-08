@@ -73,7 +73,10 @@ def find_all(xcsession, excludeDomainOwners: bool = True):
                     'first_name': item['first_name'],
                     'last_name': item['last_name'],
                     'domain_owner': item['domain_owner'],
-                    'namespace_roles': item['namespace_roles']
+                    'group_names': item['group_names'],
+                    'namespace_roles': item['namespace_roles'],
+                    'type': item['type'],
+                    'idm_type': item['idm_type']
                 }
             if excludeDomainOwners:
                 if item['domain_owner']: 
@@ -88,7 +91,7 @@ def find_all(xcsession, excludeDomainOwners: bool = True):
     except Exception as e:
         raise FindError(e)
 
-def delete(xcsession, iam, namespace='system'):
+def delete(xcsession, iam: dict, namespace='system'):
     userPayload = {
         "email": iam['email'],
         "namespace": namespace
@@ -103,17 +106,21 @@ def delete(xcsession, iam, namespace='system'):
     except Exception as e:
         raise DelError(e)
 
+def update(xcsession, iam: dict):
+    try:
+        resp = xcsession.put(
+            '/api/web/custom/namespaces/system/users/user_roles',
+            json=iam
+        )
+        resp.raise_for_status()
+        return
+    except Exception as e:
+        raise ReplaceError(e)
 
+'''
+async functions
 
-"""
-TBD
-Handle domain owners
-add bulk create and bulk delete methods
-"""
-
-"""
-Below for bulk user deletion
-"""
+'''
 async def _post(session, email: str, namespace='system'):
     try:
         async with session.post(

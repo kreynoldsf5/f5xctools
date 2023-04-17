@@ -100,6 +100,31 @@ class F5xcSession(Session):
                 return None
         except Exception as e:
             raise IAMerror(e)
+        
+    def staleNSs(self, staleDays, ephemeral: bool=False):
+        try:
+            resp = self.get('/api/web/namespaces?report_fields')
+            resp.raise_for_status()
+            staleNSs = []
+            for item in resp.json()['items']:
+                expiry = findExpiry(staleDays)
+                this = {
+                        'name': item['name'],
+                        'description': item['description'],
+                        'creation_timestamp': item['system_metadata']['creation_timestamp'],
+                    }
+                if ephemeral:   
+                    if (parse(this['creation_timestamp']) < expiry) and ('ephemeral NS for user:' in this['description']):
+                        staleNSs.append(this)
+                else:
+                    if parse(this['creation_timestamp']) < expiry:
+                        staleNSs.append(this)    
+            if len(staleNSs):
+                return staleNSs
+            else:
+                return None
+        except Exception as e:
+            raise NSerror(e)
 
     def staleApiCreds(self, staleDays):
         try:

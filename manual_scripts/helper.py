@@ -117,7 +117,9 @@ class F5xcSession(Session):
                     if (parse(this['creation_timestamp']) < expiry) and ('ephemeral NS for user:' in this['description']):
                         staleNSs.append(this)
                 else:
-                    if parse(this['creation_timestamp']) < expiry:
+                    print(expiry)
+                    print(this['modification_timestamp'])
+                    if parse(this['modification_timestamp']) < expiry:
                         staleNSs.append(this)    
             if len(staleNSs):
                 return staleNSs

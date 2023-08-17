@@ -30,9 +30,9 @@ def main():
     ap.add_argument(
         '--ephemeral',
         help='namespace is ephemeral',
-        type=bool,
-        required=False,
-        default=True
+        default=False,
+        action='store_true',
+        required=False
     )
     ap.add_argument(
         '--csv',
@@ -64,7 +64,7 @@ def main():
     try:
         xcSession = F5xcSession(args.token, args.tenant)
         logger.debug('created XC session')
-        stale = xcSession.staleNSs(args.stale_days, True)
+        stale = xcSession.staleNSs(args.stale_days, args.ephemeral)
         if stale:
             logger.info('found {} stale Namespaces'.format(len(stale)))
         else:
